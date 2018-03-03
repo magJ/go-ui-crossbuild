@@ -1,4 +1,4 @@
-# go-ui-docker
+# go-ui-crossbuild
 Cross compiler for use with the [go ui library](https://github.com/andlabs/ui)  
 Builds amd64 binaries for linux, windows and macOS(darwin)
 
