@@ -1,6 +1,7 @@
 # go-ui-crossbuild
 Cross compiler for use with the [go ui library](https://github.com/andlabs/ui)  
-Builds amd64 binaries for linux, windows and macOS(darwin)
+Builds amd64 binaries for linux, windows and macOS(darwin)  
+[magj/go-ui-crossbuild on dockerhub](https://hub.docker.com/r/magj/go-ui-crossbuild/)
 
 ### Usage
 1. Mount your project to `/go/src/project_name`
