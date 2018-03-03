@@ -1,5 +1,6 @@
 # go-ui-docker
-Cross compiler for use with the [go ui library](https://github.com/andlabs/ui) 
+Cross compiler for use with the [go ui library](https://github.com/andlabs/ui)  
+Builds amd64 binaries for linux, windows and macOS(darwin)
 
 ### Usage
 1. Mount your project to `/go/src/project_name`
