@@ -21,7 +21,7 @@ cp /tmp/libui_linux_amd64.a vendor/github.com/andlabs/ui\n\
 echo "Building linux binary"\n\
 GOOS=linux CC=clang CXX=clang++ go build $PACKAGE $*\n\
 echo "Building windows binary"\n\
-GOOS=windows CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ go build -ldflags -H=windowsgui $PACKAGE $*\n\
+GOOS=windows CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ go build -ldflags "-H=windowsgui -extldflags=-s" $PACKAGE $*\n\
 echo "Building darwin binary"\n\
 GOOS=darwin CGO_LDFLAGS_ALLOW="-mmacosx-version-min.*" CC=o64-clang CXX=o64-clang++ go build -o ${PACKAGE_BASENAME}.app $PACKAGE $*\n\
 ' >> /bin/gouicrossbuild
