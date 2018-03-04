@@ -27,16 +27,16 @@ if [ `basename $0` == "gouicrossbuild" ]; then
     # Remove when https://github.com/andlabs/ui/issues/230 fixed
     cp /tmp/libui_linux_amd64.a vendor/github.com/andlabs/ui
     echo "Building linux binary"
-    GOOS=linux CC=clang CXX=clang++ go build -o ${BUILD_OUTPUT} ${PACKAGE} $*
+    GOOS=linux CC=clang CXX=clang++ go build -o ${BUILD_OUTPUT}_linux ${PACKAGE} $*
     echo "Building windows binary"
-    GOOS=windows CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ go build -o ${BUILD_OUTPUT}.exe -ldflags "-H=windowsgui -extldflags=-s" ${PACKAGE} $*
+    GOOS=windows CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ go build -o ${BUILD_OUTPUT}_windows.exe -ldflags "-H=windowsgui -extldflags=-s" ${PACKAGE} $*
     echo "Building darwin binary"
-    GOOS=darwin CGO_LDFLAGS_ALLOW="-mmacosx-version-min.*" CC=o64-clang CXX=o64-clang++ go build -o ${BUILD_OUTPUT}.app ${PACKAGE} $*
+    GOOS=darwin CGO_LDFLAGS_ALLOW="-mmacosx-version-min.*" CC=o64-clang CXX=o64-clang++ go build -o ${BUILD_OUTPUT}_darwin.app ${PACKAGE} $*
 else
     echo "Building linux binary"
-    GOOS=linux go build -o ${BUILD_OUTPUT} ${PACKAGE} $*
+    GOOS=linux go build -o ${BUILD_OUTPUT}_linux ${PACKAGE} $*
     echo "Building windows binary"
-    GOOS=windows go build -o ${BUILD_OUTPUT}.exe ${PACKAGE} $*
+    GOOS=windows go build -o ${BUILD_OUTPUT}_windows.exe ${PACKAGE} $*
     echo "Building darwin binary"
-    GOOS=darwin go build -o ${BUILD_OUTPUT} ${PACKAGE} $*
+    GOOS=darwin go build -o ${BUILD_OUTPUT}_darwin ${PACKAGE} $*
 fi
