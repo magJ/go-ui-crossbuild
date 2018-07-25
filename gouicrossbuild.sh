@@ -7,7 +7,7 @@ if (( $# < 2 )); then die "Provide a project root path and a relative package pa
 PROJECT_ROOT=$1
 PACKAGE=$2
 PACKAGE_BASENAME=`basename ${PACKAGE}| cut -f 1 -d '.'`
-if [ -n "$1" ]; then
+if [ -n "$3" ]; then
     mkdir -p $3
     BUILD_OUTPUT="${3}/${PACKAGE_BASENAME}"
 else
